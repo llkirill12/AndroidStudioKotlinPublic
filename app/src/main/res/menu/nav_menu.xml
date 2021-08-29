@@ -11,17 +11,18 @@
             <item android:title="Выход" android:id="@+id/item5" android:icon="@drawable/ic_item1"/>
         </menu>
     </item>
-<!--
-    <item android:title="Ctegory 2">
+
+    <item android:title="ПИН Код">
         <menu>
-            <item android:title="item 11" android:id="@+id/item11" android:icon="@drawable/ic_item1"/>
-            <item android:title="item 22" android:id="@+id/item22" android:icon="@drawable/ic_item1"/>
-            <item android:title="item 33" android:id="@+id/item33" android:icon="@drawable/ic_item1"/>
-            <item android:title="item 44" android:id="@+id/item44" android:icon="@drawable/ic_item1"/>
-            <item android:title="item 55" android:id="@+id/item55" android:icon="@drawable/ic_item1"/>
+            <item android:title="Задать ПИН" android:id="@+id/item11" android:icon="@drawable/ic_item1"/>
+            <item android:title="Отключить ПИН" android:id="@+id/item22" android:icon="@drawable/ic_item1"/>
+            <!--
+            <item android:title="Сменить ПИН" android:id="@+id/item33" android:icon="@drawable/ic_item1"/>
+            <item android:title="Проверить ПИН" android:id="@+id/item44" android:icon="@drawable/ic_item1"/>
+            -->
         </menu>
     </item>
--->
+
 
 
 </menu>

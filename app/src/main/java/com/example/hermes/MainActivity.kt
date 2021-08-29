@@ -3,18 +3,24 @@ package com.example.hermes
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.view.GravityCompat
 import com.example.hermes.databinding.ActivityMainBinding
+import com.example.pin_1.utils.EasyLock
+import com.example.pin_1.utils.LockscreenHandler
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : LockscreenHandler() {
+
     lateinit var binding : ActivityMainBinding
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        EasyLock.checkPassword(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -37,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                         R.id.item3 -> {
                             Toast.makeText(this@MainActivity, "Настройки", Toast.LENGTH_SHORT).show()
                             //drawer.closeDrawer(GravityCompat.START) // закрываем левое меню
+                            nv.menu
                         }
                         R.id.item4 -> {
                             Toast.makeText(this@MainActivity, "Закрыть меню", Toast.LENGTH_SHORT).show()
@@ -47,13 +54,15 @@ class MainActivity : AppCompatActivity() {
                             drawer.closeDrawer(GravityCompat.START) // закрываем левое меню
                             System.exit(0)
                         }
-                        /*R.id.item11 -> {
-                            Toast.makeText(this@MainActivity, "item11", Toast.LENGTH_SHORT).show()
+                        R.id.item11 -> {
+                            Toast.makeText(this@MainActivity, "Задать ПИН", Toast.LENGTH_SHORT).show()
+                            EasyLock.setPassword(this@MainActivity, this@MainActivity::class.java)
                         }
                         R.id.item22 -> {
-                            Toast.makeText(this@MainActivity, "item22", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity, "Отключить ПИН", Toast.LENGTH_SHORT).show()
+                            EasyLock.disablePassword(this@MainActivity, this@MainActivity::class.java)
                         }
-                        R.id.item33 -> {
+                        /*R.id.item33 -> {
                             Toast.makeText(this@MainActivity, "item33", Toast.LENGTH_SHORT).show()
                         }
                         R.id.item44 -> {
@@ -86,4 +95,21 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() { // переопределяем нажатие на кнопку назад
         if (binding.webView.canGoBack()) binding.webView.goBack() else super.onBackPressed()
     }
+
+    fun setPass(view: View?) {
+        EasyLock.setPassword(this, MainActivity::class.java)
+    }
+
+    fun changePass(view: View?) {
+        EasyLock.changePassword(this, MainActivity::class.java)
+    }
+
+    fun disable(view: View?) {
+        EasyLock.disablePassword(this, MainActivity::class.java)
+    }
+
+    fun checkPass(view: View?) {
+        EasyLock.checkPassword(this)
+    }
+
 }
