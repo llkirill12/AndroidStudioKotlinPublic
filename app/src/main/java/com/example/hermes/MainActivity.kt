@@ -4,7 +4,9 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.view.GravityCompat
 import com.example.hermes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +18,58 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         webViewSetup()
+
+        binding.apply {
+            //open.setOnClickListener {
+                drawer.openDrawer(GravityCompat.START)  // открываем левое меню
+                nv.setNavigationItemSelectedListener {
+                    when (it.itemId) {
+                        R.id.item1 -> {
+                            Toast.makeText(this@MainActivity, "Аккаунт", Toast.LENGTH_SHORT).show()
+                            //drawer.closeDrawer(GravityCompat.START) // закрываем левое меню
+                        }
+                        R.id.item2 -> {
+                            Toast.makeText(this@MainActivity, "Кошельки", Toast.LENGTH_SHORT).show()
+                            //drawer.closeDrawer(GravityCompat.START) // закрываем левое меню
+                        }
+                        R.id.item3 -> {
+                            Toast.makeText(this@MainActivity, "Настройки", Toast.LENGTH_SHORT).show()
+                            //drawer.closeDrawer(GravityCompat.START) // закрываем левое меню
+                        }
+                        R.id.item4 -> {
+                            Toast.makeText(this@MainActivity, "Закрыть меню", Toast.LENGTH_SHORT).show()
+                            drawer.closeDrawer(GravityCompat.START) // закрываем левое меню
+                        }
+                        R.id.item5 -> {
+                            Toast.makeText(this@MainActivity, "Выход", Toast.LENGTH_SHORT).show()
+                            drawer.closeDrawer(GravityCompat.START) // закрываем левое меню
+                            System.exit(0)
+                        }
+                        /*R.id.item11 -> {
+                            Toast.makeText(this@MainActivity, "item11", Toast.LENGTH_SHORT).show()
+                        }
+                        R.id.item22 -> {
+                            Toast.makeText(this@MainActivity, "item22", Toast.LENGTH_SHORT).show()
+                        }
+                        R.id.item33 -> {
+                            Toast.makeText(this@MainActivity, "item33", Toast.LENGTH_SHORT).show()
+                        }
+                        R.id.item44 -> {
+                            Toast.makeText(this@MainActivity, "item44", Toast.LENGTH_SHORT).show()
+                        }
+                        R.id.item55 -> {
+                            Toast.makeText(this@MainActivity, "item55", Toast.LENGTH_SHORT).show()
+                        }*/
+                    }
+                    true
+                }
+                //button3.setOnClickListener {
+                //    drawer.closeDrawer(GravityCompat.START) // закрываем левое меню
+                //}
+            //}
+        }
 
     }
 

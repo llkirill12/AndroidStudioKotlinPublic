@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item android:title="">
+        <menu>
+            <item android:title="Аккаунт" android:id="@+id/item1" android:icon="@drawable/ic_item1"/>
+            <item android:title="Кошельки" android:id="@+id/item2" android:icon="@drawable/ic_item1"/>
+            <item android:title="Настройки" android:id="@+id/item3" android:icon="@drawable/ic_item1"/>
+            <item android:title="Закрыть меню" android:id="@+id/item4" android:icon="@drawable/ic_item1"/>
+            <item android:title="Выход" android:id="@+id/item5" android:icon="@drawable/ic_item1"/>
+        </menu>
+    </item>
+<!--
+    <item android:title="Ctegory 2">
+        <menu>
+            <item android:title="item 11" android:id="@+id/item11" android:icon="@drawable/ic_item1"/>
+            <item android:title="item 22" android:id="@+id/item22" android:icon="@drawable/ic_item1"/>
+            <item android:title="item 33" android:id="@+id/item33" android:icon="@drawable/ic_item1"/>
+            <item android:title="item 44" android:id="@+id/item44" android:icon="@drawable/ic_item1"/>
+            <item android:title="item 55" android:id="@+id/item55" android:icon="@drawable/ic_item1"/>
+        </menu>
+    </item>
+-->
+
+
+</menu>
